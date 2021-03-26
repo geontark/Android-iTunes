@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="base_h_margin">16dp</dimen>
+    <dimen name="base_v_margin">16dp</dimen>
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin12">12dp</dimen>
+
+    <dimen name="title">28sp</dimen>
+    <dimen name="title1">24sp</dimen>
+    <dimen name="title2">20sp</dimen>
+    <dimen name="title3">17sp</dimen>
+    <dimen name="title4">15sp</dimen>
+    <dimen name="title5">13sp</dimen>
+    <dimen name="title6">11sp</dimen>
+
+
+</resources>

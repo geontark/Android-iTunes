@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="favoriteItemClick"
+            type="com.devtak.watcha.presentation.ui.listener.ItemClickForFavoriteStateListener" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="track"
+            type="com.devtak.watcha.presentation.model.TrackPresentation" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/list_item_type1"
+        android:paddingStart="@dimen/base_h_margin"
+        android:paddingEnd="@dimen/base_h_margin">
+
+        <ImageView
+            android:id="@+id/track_thumbnail"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/track_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setCorner='@{26}'
+            app:setImage="@{track.artworkUrl}"
+            app:setImageError="@{@drawable/ic_question}"
+            tools:src="@drawable/ic_question" />
+
+        <TextView
+            android:id="@+id/track_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/base_h_margin"
+            android:singleLine="true"
+            android:text="@{track.trackName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title4"
+            app:layout_constraintLeft_toRightOf="@id/track_thumbnail"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/track_thumbnail"
+            tools:text="trackName trackName trackName trackName trackName trackName " />
+
+        <TextView
+            android:id="@+id/collection_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@{track.collectionName}"
+            android:textColor="@color/gray60"
+            android:textSize="@dimen/title5"
+            app:layout_constraintBottom_toTopOf="@id/artist_name"
+            app:layout_constraintLeft_toLeftOf="@id/track_name"
+            app:layout_constraintRight_toRightOf="@id/track_name"
+            app:layout_constraintTop_toBottomOf="@id/track_name"
+            tools:text="collection name collection name collection name collection name collection name" />
+
+        <TextView
+            android:id="@+id/artist_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@{track.artistName}"
+            android:textColor="@color/gray40"
+            android:textSize="@dimen/title6"
+            app:layout_constraintBottom_toBottomOf="@id/track_thumbnail"
+            app:layout_constraintLeft_toLeftOf="@id/track_name"
+            app:layout_constraintTop_toBottomOf="@id/collection_name"
+            app:layout_constraintWidth_percent="0.5"
+            tools:text="artistName artistName artistName artistName artistName artistName" />
+
+        <ImageView
+            android:id="@+id/image_favorite"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin12"
+            android:layout_marginEnd="@dimen/base_h_margin"
+            android:contentDescription="@string/image_default_favorite"
+            android:src="@{track.favorite ? @drawable/ic_favorite_foc : @drawable/ic_favorite_nor}"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/collection_name"
+            tools:src="@drawable/ic_favorite_nor" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:background="@drawable/round_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> favoriteItemClick.onFavoriteTrackItemClicked(index, track)}"
+            app:layout_constraintBottom_toBottomOf="@id/image_favorite"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="@id/image_favorite"
+            app:layout_constraintRight_toRightOf="@id/image_favorite"
+            app:layout_constraintTop_toTopOf="@id/image_favorite" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

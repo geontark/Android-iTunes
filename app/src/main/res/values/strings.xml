@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">iTunes API</string>
+
+    <string name="track_image">Track Image</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_favorite">Favorite</string>
+    <string name="image_default_favorite">Favorite</string>
+    <string name="toast_error_network">인터넷 연결을 해주세요</string>
+</resources>

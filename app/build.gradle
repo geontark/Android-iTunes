@@ -1,0 +1,94 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'koin'
+}
+
+android {
+    compileSdkVersion(AndroidSdk.compile)
+
+    defaultConfig {
+        minSdkVersion(AndroidSdk.min)
+        targetSdkVersion(AndroidSdk.target)
+
+        applicationId = AndroidClient.appId
+        versionCode = AndroidClient.versionCode
+        versionName = AndroidClient.versionName
+        testInstrumentationRunner = AndroidClient.testRunner
+
+        multiDexEnabled true
+        buildConfigField "String", "ITUNES_API", "\"https://itunes.apple.com\""
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.kotlinCoroutines)
+    implementation(Libraries.kotlinCoroutinesAndroid)
+    implementation(Libraries.appCompat)
+    implementation(Libraries.ktxCore)
+    implementation(Libraries.constraintLayout)
+    implementation(Libraries.viewModel)
+    implementation(Libraries.liveData)
+    implementation(Libraries.lifecycleExtensions)
+    implementation(Libraries.cardView)
+    implementation(Libraries.recyclerView)
+    implementation(Libraries.material)
+    implementation(Libraries.androidAnnotations)
+    implementation(Libraries.glide)
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitAdapterForRxJava2)
+    implementation(Libraries.retrofitConverterForRxJava2)
+    implementation(Libraries.okHttpLoggingInterceptor)
+    implementation(Libraries.okhttpFor19) {
+        force = true //API 19 support
+    }
+    implementation(Libraries.kotlinSerialization)
+    // rxjava
+    implementation(Libraries.rxJava2)
+    implementation(Libraries.rxAndroid2)
+    // room
+    implementation(Libraries.roomDB)
+    implementation(Libraries.roomDBForRxjava2)
+    kapt(Libraries.roomDBCompiler)
+    // koin
+    implementation(Libraries.andridKoinScope)
+    implementation(Libraries.androidKoinViewModel)
+    implementation(Libraries.androidKoinFragment)
+    // navigation
+    implementation(Libraries.navigationKtx)
+    implementation(Libraries.navigationFragment)
+    // etc
+    implementation(Libraries.pullRefresh)
+    implementation(Libraries.multidex)
+    // Unit/Android tests
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.mockk)
+    testImplementation(TestLibraries.kluent)
+    testImplementation(TestLibraries.robolectric)
+    testImplementation(TestLibraries.kotlinKoinTest)
+    // Acceptance tests
+    androidTestImplementation(TestLibraries.testRunner)
+    androidTestImplementation(TestLibraries.espressoCore)
+    androidTestImplementation(TestLibraries.testExtJunit)
+    androidTestImplementation(TestLibraries.testRules)
+    androidTestImplementation(TestLibraries.espressoIntents)
+}
