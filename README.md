@@ -2,14 +2,13 @@
 
 ## 아키텍쳐  
 MVVM, Clean Architecture  
-
 ## 사용한 기술  
 RxJava2  
 RxAndroid  
 LiveData  
+DataBinding  
 ViewModel  
 Navigation  
-DataBinding  
 Room  
 Koin  
 Retrofit2  
