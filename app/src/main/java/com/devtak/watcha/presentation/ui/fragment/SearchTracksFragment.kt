@@ -8,23 +8,23 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.devtak.watcha.databinding.FragmentSearchTracksBinding
 import com.devtak.watcha.presentation.search.SearchTrackAdapter
-import com.devtak.watcha.presentation.ui.activity.MainActivity
+import com.devtak.watcha.presentation.viewmodel.SearchTracksVM
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SearchTracksFragment() : Fragment() {
     private lateinit var binding: FragmentSearchTracksBinding
+    private val searchTracksVM by sharedViewModel<SearchTracksVM>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val searchTracksVM = (activity as MainActivity).searchTracksVM
         searchTracksVM.favoriteUpdate()
         binding = FragmentSearchTracksBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@SearchTracksFragment
-            listSearchTracks.adapter = SearchTrackAdapter(searchTracksVM)
+            listSearchTracks.adapter = SearchTrackAdapter(searchTracksVM = searchTracksVM)
              vm = searchTracksVM
         }
-
         binding.swipeLayout.setOnRefreshListener {
             searchTracksVM.searchTrack()
         }

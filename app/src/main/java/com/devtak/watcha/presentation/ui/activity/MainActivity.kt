@@ -11,8 +11,8 @@ import com.devtak.watcha.presentation.viewmodel.SearchTracksVM
 import org.koin.android.ext.android.inject
 
 class MainActivity : BaseActivity() {
-    val favoriteTracksVM: FavoriteTracksVM by inject()
-    val searchTracksVM: SearchTracksVM by inject()
+    private val favoriteTracksVM: FavoriteTracksVM by inject()
+    private val searchTracksVM: SearchTracksVM by inject()
 
     private lateinit var binding: ActivityMainBinding
 
