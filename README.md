@@ -15,7 +15,7 @@ MVVM, Clean Architecture
 [Retrofit2](https://square.github.io/retrofit/)    
 [okhttp](https://square.github.io/okhttp/)    
 [Glide](https://github.com/bumptech/glide)      
-[Pull-to-refresh(search API 결과값 당겨서 새로고침)](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/package-summary)    
+[Pull-to-refresh for search API](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/package-summary)    
 
 ## Test  
 junit
