@@ -3,6 +3,7 @@ package com.devtak.watcha.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.devtak.watcha.core.log.Logg
 import com.devtak.watcha.core.wrapper.Event
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -21,6 +22,7 @@ abstract class BaseVM : ViewModel() {
     }
 
     fun showToast(resId: Int) {
+        Logg.e("로그 출력해보자2")
         _toastEvent.value = Event(resId)
     }
 

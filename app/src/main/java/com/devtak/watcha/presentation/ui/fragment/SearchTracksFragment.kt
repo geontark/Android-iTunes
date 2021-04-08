@@ -13,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SearchTracksFragment() : Fragment() {
     private lateinit var binding: FragmentSearchTracksBinding
-    private val searchTracksVM by sharedViewModel<SearchTracksVM>()
+    private val searchTracksVM: SearchTracksVM by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

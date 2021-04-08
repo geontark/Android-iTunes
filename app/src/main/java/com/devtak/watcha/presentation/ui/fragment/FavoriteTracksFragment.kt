@@ -12,7 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FavoriteTracksFragment() : Fragment() {
     private lateinit var binding: FragmentFavoriteTracksBinding
-    private val favoriteTracksVM by sharedViewModel<FavoriteTracksVM>()
+    private val favoriteTracksVM: FavoriteTracksVM by sharedViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

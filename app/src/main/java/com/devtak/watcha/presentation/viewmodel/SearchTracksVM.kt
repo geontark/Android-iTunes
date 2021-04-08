@@ -72,6 +72,7 @@ class SearchTracksVM(
     fun searchTrack() {
         // network check
         if (!networkHandler.isNetworkAvailable()) {
+            Logg.e("로그 출력해보자!!!!")
             showToast(R.string.toast_error_network)
             searchRefreshDone()
             return
