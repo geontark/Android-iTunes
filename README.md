@@ -1,8 +1,9 @@
 # iTunes search API 
+iTunes search API : https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/  
 
-## 아키텍쳐  
+## Architecture  
 MVVM, Clean Architecture  
-## 사용한 기술  
+## Skill  
 [RxJava2](https://github.com/ReactiveX/RxJava)  
 [RxAndroid](https://github.com/ReactiveX/RxAndroid)  
 [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)  
