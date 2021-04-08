@@ -13,6 +13,7 @@ import org.koin.android.ext.android.inject
 class MainActivity : BaseActivity() {
     val favoriteTracksVM: FavoriteTracksVM by inject()
     val searchTracksVM: SearchTracksVM by inject()
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

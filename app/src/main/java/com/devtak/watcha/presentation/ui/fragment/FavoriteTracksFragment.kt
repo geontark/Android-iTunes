@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.devtak.watcha.databinding.FragmentFavoriteTracksBinding
-import com.devtak.watcha.presentation.ui.activity.MainActivity
 import com.devtak.watcha.presentation.ui.adapter.FavoriteTracksAdapter
+import com.devtak.watcha.presentation.viewmodel.FavoriteTracksVM
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FavoriteTracksFragment() : Fragment() {
     private lateinit var binding: FragmentFavoriteTracksBinding
+    private val favoriteTracksVM by sharedViewModel<FavoriteTracksVM>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as MainActivity).favoriteTracksVM.getAllFavoriteTracks()
+        favoriteTracksVM.getAllFavoriteTracks()
     }
 
     override fun onCreateView(
@@ -23,8 +25,8 @@ class FavoriteTracksFragment() : Fragment() {
     ): View? {
         binding = FragmentFavoriteTracksBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@FavoriteTracksFragment
-            listFavoriteTracks.adapter = FavoriteTracksAdapter((activity as MainActivity).favoriteTracksVM)
-            vm = (activity as MainActivity).favoriteTracksVM
+            listFavoriteTracks.adapter = FavoriteTracksAdapter(favoriteTracksVM = favoriteTracksVM)
+            vm = favoriteTracksVM
         }
         return binding.root
     }
