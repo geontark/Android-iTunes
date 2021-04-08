@@ -16,7 +16,7 @@ class FavoriteTracksVM(
     private val favoriteTrackFocUseCase: FavoriteTrackFocUseCase,
     private val favoriteTrackNorUseCase: FavoriteTrackNorUseCase,
     private val getAllFavoriteTracksUseCase: GetAllFavoriteTracksUseCase
-) : BaseVM() {
+) : TracksVM() {
     private val _favoriteTracks = ListLiveData<TrackPresentation>()
     val favoriteTracks: LiveData<ArrayList<TrackPresentation>> = _favoriteTracks
 

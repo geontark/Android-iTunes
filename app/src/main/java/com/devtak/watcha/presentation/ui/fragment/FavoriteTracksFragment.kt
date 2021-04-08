@@ -28,9 +28,4 @@ class FavoriteTracksFragment() : Fragment() {
         }
         return binding.root
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        (activity as MainActivity).favoriteTracksVM.clearCompositeDisposable()
-    }
 }

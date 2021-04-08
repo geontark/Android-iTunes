@@ -23,7 +23,7 @@ class SearchTracksVM(
     private val getAllFavoriteTracksUseCase: GetAllFavoriteTracksUseCase,
     private val favoriteTrackFocUseCase: FavoriteTrackFocUseCase,
     private val favoriteTrackNorUseCase: FavoriteTrackNorUseCase
-) : BaseVM() {
+) : TracksVM() {
     // 검색목록 갱신
     private val _searchRefreshDoneEvent = MutableLiveData<Event<Unit>>()
     val searchRefreshDoneEvent = _searchRefreshDoneEvent

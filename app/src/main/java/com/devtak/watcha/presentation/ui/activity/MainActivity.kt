@@ -13,12 +13,11 @@ import org.koin.android.ext.android.inject
 class MainActivity : BaseActivity() {
     val favoriteTracksVM: FavoriteTracksVM by inject()
     val searchTracksVM: SearchTracksVM by inject()
-    private val binding: ActivityMainBinding by lazy {
-        DataBindingUtil.setContentView(this, R.layout.activity_main)
-    }
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.apply {
             lifecycleOwner = this@MainActivity
         }
